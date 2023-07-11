@@ -49,6 +49,8 @@ private apiUrl = 'http://localhost:9000';
    
   }
 
+  //book a truck
+
   book(bookings:Bookings): Observable<any> {
     return this.http.post(`${this.apiUrl}/book`,bookings);
      

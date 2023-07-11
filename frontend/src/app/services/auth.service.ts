@@ -5,6 +5,8 @@ import { tap, delay } from 'rxjs/operators';
 import { Drivers } from '../models/drivers';
 import { Users } from '../models/users';
 
+import { Bookings } from '../models/bookings';
+
 
 
 const httpOptions = {
@@ -41,6 +43,14 @@ private apiUrl = 'http://localhost:9000';
 
   registers(users:Users): Observable<any> {
     return this.http.post(`${this.apiUrl}/users`,users);
+     
+      
+     
+   
+  }
+
+  book(bookings:Bookings): Observable<any> {
+    return this.http.post(`${this.apiUrl}/book`,bookings);
      
       
      

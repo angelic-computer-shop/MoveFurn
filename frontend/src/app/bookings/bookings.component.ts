@@ -37,9 +37,9 @@ export class BookingsComponent implements OnInit{
       
               pick: new FormControl(null,[Validators.required,Validators.min(3)]),
         drop:new FormControl(null,[Validators.required,Validators.min(3)]),
-              idno:new FormControl(null,[Validators.required,Validators.maxLength(13)]),
+              //idno:new FormControl(null,[Validators.required,Validators.maxLength(13)]),
               altno:new FormControl(null,[Validators.required,Validators.min(3)]),
-              licenseno:new FormControl(null,[Validators.required,Validators.min(3)]),
+              //licenseno:new FormControl(null,[Validators.required,Validators.min(3)]),
               cellno:new FormControl(null,[Validators.required,Validators.maxLength(10)]),
               noitems:new FormControl(null,[Validators.required,Validators.min(3)]),
               need:new FormControl(null,[Validators.required,Validators.min(3)]),
@@ -48,7 +48,26 @@ export class BookingsComponent implements OnInit{
             });
           }
       
-
+          onSubmit() {
+            this.bookingTruck();
+              }
+      
+              bookingTruck()
+              {
+                             this.usersService.createBooking(this.fb.value).subscribe(res=>{
+         this.bookings=res;
+                    console.log(res);
+                // if(this.fb.valid){
+                  // this.usersService.createDriver(this.fb.value).subscribe(res=>{
+                  //   this.drivers=res;
+                  //   console.log(res);
+                             
+                  });
+                 
+                    
+                      console.log("Register successful");       
+                         
+                }
  
 
 }

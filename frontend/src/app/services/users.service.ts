@@ -12,6 +12,7 @@ export class UsersService {
 
   private apiUrl = 'http://localhost:9000/driver';
   private apiUrls = 'http://localhost:9000/users';
+  private apiUrlss='http://localhost:9000/booking';
 
 
   constructor(private http: HttpClient) { }
@@ -35,7 +36,7 @@ createUser(users:Users):Observable<any>{
 
 createBooking(bookings:Bookings):Observable<any>{
 
-  return this.http.post(this.apiUrl,bookings);
+  return this.http.post(this.apiUrlss,bookings);
 }
 
   getDriverByEmail(email:string):Observable<any>{

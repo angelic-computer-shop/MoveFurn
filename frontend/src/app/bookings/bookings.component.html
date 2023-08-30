@@ -11,17 +11,17 @@ style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
                   <h3 class="mb-5 text-uppercase">Booking form</h3>
-  
+                  <form [formGroup]="fb" (ngSubmit)="onSubmit()">
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="pick" class="form-control form-control-lg" />
+                        <input  type="text" class="form-control" id="pick" formControlName="pick"/>
                         <label class="form-label" for="pick">Pick up location</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="drop" class="form-control form-control-lg" />
+                        <input  type="text" class="form-control" id="drop" formControlName="drop"/>
                         <label class="form-label" for="drop">Drop up location</label>
                       </div>
                     </div>
@@ -31,13 +31,13 @@ style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="cellno" class="form-control form-control-lg" />
+                        <input  type="text" class="form-control" id="cellno" formControlName="cellno"/>
                         <label class="form-label" for="cellno">Contact no</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="altno" class="form-control form-control-lg" />
+                        <input  type="text" class="form-control" id="altno" formControlName="altno"/>
                         <label class="form-label" for="altno">Alternate contact</label>
                       </div>
                     </div>
@@ -135,11 +135,11 @@ style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/
                   
   
                   <div class="form-outline mb-4">
-                    <input type="text" id="noitems" class="form-control form-control-lg" />
+                    <input  type="text" class="form-control"  id="noitems" formControlName="noitems"/>
                     <label class="form-label" for="noitems">total no of items</label>
                   </div>
                   <div class="form-outline mb-4">
-                    <input type="text" id="need" class="form-control form-control-lg" />
+                    <input  type="text" class="form-control"  id="need" formControlName="need"/>
                     <label class="form-label" for="need">Need assistant(yes/no)</label>
                   </div>
   
@@ -151,10 +151,11 @@ style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/
   
                   <div class="d-flex justify-content-end pt-3">
                   
-                    <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                    <button type="button" class="btn btn-lg ms-2" style="background-color:grey;">Submit form</button>
                   </div>
-  
+                </form>
                 </div>
+              
               </div>
             </div>
           </div>

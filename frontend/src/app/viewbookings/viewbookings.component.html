@@ -16,8 +16,9 @@
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">View Bookings</p>
   
                   <form class="mx-1 mx-md-4">
-  
                     
+                    <div *ngIf="data.length > 0">
+                   
                     <table class="table">
                       <thead>
                         <tr>
@@ -31,22 +32,30 @@
                           
                         </tr>
                       </thead>
+                      
                       <tbody>
-                        <tr>
-                          <th scope="row"></th>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                        <tr *ngFor="let user of data">
+                          
+                          <th scope="row">{{user.id}}</th>
+                          <td>{{ user.pick }}</td>
+                          <td>{{ user.drop }}</td>
+                          <td>{{ user.noitems }}</td>
+                          
+                          <td>{{ user.need }}</td>
+                          
                           <td><button type="submit" class="btn btn-block mb-4" style="background-color:grey;">
                               Accept
                             </button></td>
+                          
                         </tr>
                         
                       </tbody>
+                    
                     </table>
-                    
-                    
+                  </div>
+                 
+
+                
   
                     
   

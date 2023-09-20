@@ -65,7 +65,7 @@ export class BookingsComponent implements OnInit{
                   });
                  
                     
-                      console.log("Register successful");       
+                      console.log("Booking successful");       
                          
                 }
  

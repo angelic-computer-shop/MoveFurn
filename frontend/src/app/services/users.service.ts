@@ -56,7 +56,7 @@ createBooking(bookings:Bookings):Observable<any>{
 
   //Get bookings
 
-  getBooking(){
-    return this.http.get(this.apiUrl)
+  getBooking():Observable<any[]>{
+    return this.http.get<any[]>(this.apiUrlss); 
   }
 }

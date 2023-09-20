@@ -155,6 +155,50 @@ const getDrivers = (request, response) => {
       response.status(200).send(`User deleted with ID: ${id}`)
     })
   }
+
+   //create bookings
+   client
+ const createBooking = (request, response) => {
+  const { pick,drop,cellno,altno,noitems, need} = request.body
+
+  client.query('INSERT INTO booking (pick,drop,cellno,altno,noitems, need) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *', [pick,drop,cellno,altno,noitems, need], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send({message: `booikings added with ID: ${results.rows[0].id}`})
+  })
+}
+
+ //get bookings by id
+
+ client
+  
+ const getBookingById = (request, response) => {
+   const id = parseInt(request.params.id)
+ 
+   client.query('SELECT * FROM booking WHERE id = $1', [id], (error, results) => {
+     if (error) {
+       throw error
+     }
+     response.status(200).json(results.rows)
+   })
+ }
+
+  //get bookings by id
+
+  
+  
+  const getBookings = (request, response) => {
+    const id = parseInt(request.params.id)
+  
+    client.query('SELECT * FROM booking ORDER BY id ASC', (error, results) => {
+      if (error) {
+        throw error
+      
+      }
+      response.status(200).json(results.rows)
+    })
+  }
   
   module.exports = {
 
@@ -165,11 +209,17 @@ const getDrivers = (request, response) => {
     updateUser,
     deleteUser,
     login,
-
+    
     //driver
     getDrivers,
     getDriverById,
     createDriver,
     updateDriver,
     deleteDriver,
+
+    //Bookings
+    createBooking,
+    getBookingById,
+    getBookings
+
   }

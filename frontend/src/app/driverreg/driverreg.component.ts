@@ -73,10 +73,7 @@ return null;
                        this.usersService.createDriver(this.fb.value).subscribe(res=>{
    this.drivers=res;
               console.log(res);
-          // if(this.fb.valid){
-            // this.usersService.createDriver(this.fb.value).subscribe(res=>{
-            //   this.drivers=res;
-            //   console.log(res);
+          
                        
             });
             this.router.navigate(['/login']); 

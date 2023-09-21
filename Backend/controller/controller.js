@@ -161,7 +161,7 @@ const getDrivers = (request, response) => {
  const createBooking = (request, response) => {
   const { pick,drop,cellno,altno,noitems, need} = request.body
 
-  client.query('INSERT INTO booking (pick,drop,cellno,altno,noitems, need) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *', [pick,drop,cellno,altno,noitems, need], (error, results) => {
+  client.query('INSERT INTO booking (pick,drop,cellno,altno,noitems, need,status) VALUES ($1, $2,$3,$4,$5,$6,$7) RETURNING *', [pick,drop,cellno,altno,noitems, need], (error, results) => {
     if (error) {
       throw error
     }

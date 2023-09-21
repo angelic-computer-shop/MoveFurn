@@ -17,6 +17,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UserregComponent } from './userreg/userreg.component';
 import { ViewbookingsComponent } from './viewbookings/viewbookings.component';
 import { HomeComponent } from './home/home.component';
+import { StatusComponent } from './status/status.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     UserregComponent,
     ViewbookingsComponent,
-    HomeComponent
+    HomeComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

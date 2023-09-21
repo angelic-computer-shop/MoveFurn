@@ -3,6 +3,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Bookings } from '../models/bookings';
 import * as mapboxgl from 'mapbox-gl';
 import { UsersService } from '../services/users.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-viewbookings',
@@ -33,11 +34,13 @@ export class ViewbookingsComponent implements OnInit {
   // }
 
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, public messageservice: MessageService) {}
+
 
   ngOnInit(): void {
+
     this.usersService.getBooking().subscribe((response) => {
-      // Map the response data to extract name, surname, and email
+      // Map the response data to extract id, pick, and drop etc
       this.data = response.map((user: any) => {
         console.log(response);
         
@@ -52,6 +55,25 @@ export class ViewbookingsComponent implements OnInit {
       });
     });
   }
+
+  decline() {
+    // Add your code to handle the decline action here
+    console.log('Decline button clicked');
+
+    // Store the result
+    const result = 'Declined on ' + new Date().toLocaleString();
+    this.messageservice.addResult(result);
+  }
+
+  approve() {
+    // Add your code to handle the approval action here
+    console.log('Approve button clicked');
+
+    // Store the result
+    const result = 'Approved on ' + new Date().toLocaleString();
+    this.messageservice.addResult(result);
+  }
+
   }
 
 

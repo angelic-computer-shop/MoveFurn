@@ -43,12 +43,22 @@
                           
                           <td>{{ user.need }}</td>
                           
-                          <td><button type="submit" class="btn btn-block mb-4" style="background-color:grey;">
+                          <td><button (click)="approve()" class="btn btn-block mb-4" style="background-color:grey;">
                               Accept
                             </button></td>
+                            <td><button (click)="decline()" class="btn btn-block mb-4" style="background-color:grey;">
+                              Decline
+                            </button></td>
                           
-                        </tr>
-                        
+                          </tr>
+                        <div>
+                          <h2>Stored Results:</h2>
+                          <ul>
+                            
+                            <li *ngFor="let result of messageservice.getResults()">{{ result }}</li>
+                          </ul>
+                        </div>
+                      
                       </tbody>
                     
                     </table>
@@ -66,11 +76,11 @@
                   </form>
   
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                <!-- <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 text-end" style="align-content: right;">
   
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d136223.59428552332!2d28.034302062771225!3d-26.206913469578858!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95093047fedeab%3A0x192ba3244efba5f4!2sApartheid%20Museum!5e0!3m2!1sen!2sza!4v1686750078544!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d136223.59428552332!2d28.034302062771225!3d-26.206913469578858!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95093047fedeab%3A0x192ba3244efba5f4!2sApartheid%20Museum!5e0!3m2!1sen!2sza!4v1686750078544!5m2!1sen!2sza" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

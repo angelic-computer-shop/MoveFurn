@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserregComponent } from './userreg/userreg.component';
 import { ViewbookingsComponent } from './viewbookings/viewbookings.component';
+import { StatusComponent } from './status/status.component';
 
 const routes: Routes = [
 
@@ -21,7 +22,7 @@ const routes: Routes = [
    {path: 'home', component:HomeComponent},
    {path:'viewbookings', component:ViewbookingsComponent},
   
-  
+   {path:'status', component:StatusComponent},
   
    { path: '', redirectTo: 'home', pathMatch: 'full' }
 

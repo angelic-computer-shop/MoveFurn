@@ -1,4 +1,5 @@
-const client = require('../config/dbConfig.js');
+ const client = require('../config/dbConfig.js');
+
 
 const getUsers = (request, response) => {
     client.query('SELECT * FROM userss ORDER BY id ASC', (error, results) => {
@@ -21,7 +22,7 @@ const getUsers = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).json(results.rows)
+      return response.status(200).json(results.rows)
     })
   }
 
@@ -33,7 +34,7 @@ const getDrivers = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+   return response.status(200).json(results.rows)
     
   })
 }
@@ -51,7 +52,7 @@ const getDrivers = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).json(results.rows)
+      return response.status(200).json(results.rows)
     })
   }
 
@@ -66,7 +67,7 @@ const getDrivers = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(200).json(results.rows)
+      return response.status(200).json(results.rows)
     })
   }
   
@@ -78,7 +79,7 @@ const getDrivers = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(201).send(`User added with ID: ${results.rows[0].id}`)
+     return response.status(201).send(`User added with ID: ${results.rows[0].id}`)
     })
   }
   
@@ -90,7 +91,7 @@ const getDrivers = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).send({message: `Driver added with ID: ${results.rows[0].id}`})
+    return response.status(200).send({message: `Driver added with ID: ${results.rows[0].id}`})
   })
 }
 

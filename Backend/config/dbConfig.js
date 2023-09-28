@@ -5,13 +5,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'API',
   password: 'Letsdoit!',
-  port: 5432,
-
-  ssl: true,
-  synchronize: true,
-  extra: {
-    trustServerCertificate: true,
-  },
+  port: 5433,
 });
 
 module.exports = pool;

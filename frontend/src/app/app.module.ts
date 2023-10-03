@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { AuthGuard } from './auth.guard';
+import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './login/login.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { DriverregComponent } from './driverreg/driverreg.component';
@@ -18,6 +21,17 @@ import { UserregComponent } from './userreg/userreg.component';
 import { ViewbookingsComponent } from './viewbookings/viewbookings.component';
 import { HomeComponent } from './home/home.component';
 import { StatusComponent } from './status/status.component';
+import { UserRoleGuard } from './user-role.guard';
+
+
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'viewbookings', component: ViewbookingsComponent, canActivate: [AuthGuard, UserRoleGuard], data: { roles: ['driver'] } },
+  { path: 'login', component: LoginComponent },
+  { path: 'userreg', component: UserregComponent},
+];
 
 
 @NgModule({
@@ -38,9 +52,13 @@ import { StatusComponent } from './status/status.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(routes)
     
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [RouterModule],
+  providers: [AuthGuard],
+  bootstrap: [AppComponent],
+
+  
 })
 export class AppModule { }

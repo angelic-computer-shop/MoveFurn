@@ -8,4 +8,5 @@ export interface Users {
         cellno:number;
         email:string;
         password:string;
+        role:string;
 }

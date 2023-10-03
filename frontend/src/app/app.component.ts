@@ -1,22 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { SessionsService } from './services/sessions.service';
+
+
+import { UsersService } from './services/users.service'
+
+
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
+
+  template: `
+  <div *ngIf="UsersService.isLoggedIn()">
+    <!-- Your application content here -->
+    <button (click)="logout()">Logout</button>
+  </div>
+  <div *ngIf="!UsersService.isLoggedIn()">
+    <!-- Show login page or redirect to login page -->
+  </div>`,
+
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  user!: any;
+  
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private authService: AuthService, private usersService: UsersService,
+   
+    private session: SessionsService,
+    ) {}
+
+  ngOnInit() {
+    // Retrieve the user data from session storage
+    this.user = this.session.getLoggedUser();
+    
+    
+
+    // Check if the user variable contains valid user data before initializing the form
+   
+  }
+
+  
 
   logout() {
-    // Clear user authentication state (e.g., remove tokens, clear user data).
-    // Example: Remove the authentication token from localStorage.
-    localStorage.removeItem('authToken');
+    // Call the logout method from the AuthService
+    this.authService.logout();
 
-    // Navigate the user to the login page or any other desired page.
+    // Redirect to the login page or any other desired route
     this.router.navigate(['/login']);
   }
 }

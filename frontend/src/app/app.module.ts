@@ -25,12 +25,19 @@ import { UserRoleGuard } from './user-role.guard';
 
 
 
+// const routes: Routes = [
+//   { path: '', redirectTo: '/home', pathMatch: 'full' },
+//   //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
+//   { path: 'viewbookings', component: ViewbookingsComponent, canActivate: [AuthGuard, UserRoleGuard], data: { roles: ['driver'] } },
+//   { path: 'login', component: LoginComponent },
+//   { path: 'userreg', component: UserregComponent},
+// ];
+
+
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'viewbookings', component: ViewbookingsComponent, canActivate: [AuthGuard, UserRoleGuard], data: { roles: ['driver'] } },
   { path: 'login', component: LoginComponent },
-  { path: 'userreg', component: UserregComponent},
+  { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 

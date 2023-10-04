@@ -17,7 +17,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService  {
 
 private apiUrl = 'http://localhost:9000';
 
@@ -72,7 +72,7 @@ private apiUrl = 'http://localhost:9000';
  }
 
 
-  login(credentials: { email: string, password: string , role: string}): Observable<any> {
+  login(credentials: { email: string, password: string }): Observable<any> {
     this.isAuthenticateds = true;
    // this.userRole = role || '';
     

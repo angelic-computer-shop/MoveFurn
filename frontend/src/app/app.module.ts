@@ -22,6 +22,8 @@ import { ViewbookingsComponent } from './viewbookings/viewbookings.component';
 import { HomeComponent } from './home/home.component';
 import { StatusComponent } from './status/status.component';
 import { UserRoleGuard } from './user-role.guard';
+import { CustomerComponent } from './customer/customer.component';
+import { DriverComponent } from './driver/driver.component';
 
 
 
@@ -51,7 +53,10 @@ const routes: Routes = [
     UserregComponent,
     ViewbookingsComponent,
     HomeComponent,
-    StatusComponent
+    StatusComponent,
+    CustomerComponent,
+    
+    DriverComponent
   ],
   imports: [
     BrowserModule,

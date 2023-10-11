@@ -85,6 +85,26 @@ private apiUrl = 'http://localhost:9000';
     this.userRole = null;
   }
 
+  logins(username: string, password: string): boolean {
+    if (username === 'admin' && password === 'adminpass') {
+      localStorage.setItem('userRole', 'admin');
+      return true;
+    } else if (username === 'customer' && password === 'customerpass') {
+      localStorage.setItem('userRole', 'customer');
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  logouts() {
+    localStorage.removeItem('userRole');
+  }
+
+  getUserRoles(): string | null {
+    return localStorage.getItem('userRole');
+  }
+
   getUserRole() {
     return this.userRole;
   }

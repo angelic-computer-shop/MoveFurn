@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders , HttpErrorResponse} from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { loggedUser } from '../models/loggedUser';
 import { tap, delay } from 'rxjs/operators';
 import { Drivers } from '../models/drivers';
 import { Users } from '../models/users';
+
+
+
+
+
+import { Router } from '@angular/router';
+
 
 import { Bookings } from '../models/bookings';
 
@@ -71,6 +78,14 @@ private apiUrl = 'http://localhost:9000';
      
  }
 
+ loginss(credentials: { email: string, password: string }): Observable<any> {
+  return this.http.post(`${this.apiUrl}/API/driving`, credentials).pipe(
+    catchError((error: HttpErrorResponse) => {
+      // Handle the error here or rethrow it to be caught by the component.
+      return throwError(error.error.message);
+    })
+  );
+}
 
   login(credentials: { email: string, password: string }): Observable<any> {
     this.isAuthenticateds = true;

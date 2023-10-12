@@ -24,6 +24,7 @@ import { StatusComponent } from './status/status.component';
 import { UserRoleGuard } from './user-role.guard';
 import { CustomerComponent } from './customer/customer.component';
 import { DriverComponent } from './driver/driver.component';
+import { LogindriverComponent } from './logindriver/logindriver.component';
 
 
 
@@ -38,8 +39,20 @@ import { DriverComponent } from './driver/driver.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'bookings', component: BookingsComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: 'admin',
+    component: DriverComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'driver' },
+  },
+  {
+    path: 'customer',
+    component: CustomerComponent,
+    canActivate: [AuthGuard],
+    data: { expectedRole: 'customer' }, 
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 
@@ -56,7 +69,8 @@ const routes: Routes = [
     StatusComponent,
     CustomerComponent,
     
-    DriverComponent
+    DriverComponent,
+         LogindriverComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +78,8 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    
     
   ],
   exports: [RouterModule],

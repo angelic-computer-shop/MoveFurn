@@ -15,11 +15,12 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-logindriver',
+  templateUrl: './logindriver.component.html',
+  styleUrls: ['./logindriver.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LogindriverComponent implements OnInit{
+
   fb!: FormGroup;
   email!: string;
   //password!:string;
@@ -88,7 +89,4 @@ export class LoginComponent implements OnInit {
   }
 
 
-  
-
-  
 }
